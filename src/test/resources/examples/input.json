@@ -1,22 +1,40 @@
-{
-  "glossary": {
-    "title": "example glossary",
-    "GlossDiv": {
-      "title": "S",
-      "GlossList": {
-        "GlossEntry": {
-          "ID": "SGML",
-          "SortAs": "SGML",
-          "GlossTerm": "Standard Generalized Markup Language",
-          "Acronym": "SGML",
-          "Abbrev": "ISO 8879:1986",
-          "GlossDef": {
-            "para": "A meta-markup language, used to create markup languages such as DocBook.",
-            "GlossSeeAlso": ["GML", "XML"]
-          },
-          "GlossSee": "markup"
-        }
+[
+  {
+    "firstName":"Marge",
+    "lastName":"Simpson",
+    "age":33,
+    "computer": [
+      {
+        "cpu": "Intel i-3",
+        "ram": "DDR3",
+        "hdd": true,
+        "ssd": false
       }
-    }
+    ]
+  },
+  {
+    "firstName":"Homer",
+    "lastName":"Simpson",
+    "age":44,
+    "computer": [
+      {
+        "cpu": "Intel i-5",
+        "ram": "DDR5",
+        "hdd": true,
+        "ssd": false
+      },
+      {
+        "cpu": "AMD 7700",
+        "ram": "DDR4",
+        "hdd": true,
+        "ssd": true
+      },
+      {
+        "cpu": "Intel",
+        "ram": "DDR4",
+        "hdd": false,
+        "ssd": true
+      }
+    ]
   }
-}
+]

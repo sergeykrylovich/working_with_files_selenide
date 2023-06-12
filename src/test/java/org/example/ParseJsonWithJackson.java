@@ -1,29 +1,27 @@
 package org.example;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.object.JsonEmployee;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class ParseJsonWithJackson {
-
+    ObjectMapper objectMapper = new ObjectMapper();
     @Test
     void parseJson () throws Exception {
-        JsonFactory jsonF = new JsonFactory();
+        File file = new File("src/test/resources/examples/input.json");
 
-        try (
-                JsonParser jp = jsonF.createJsonParser(new File("src/test/resources/examples/input.json"))
-        ) {
-//           while (jp.nextToken() != JsonToken.END_OBJECT) {
-//               String fieldName = jp.getCurrentName();
-//               System.out.println(fieldName);
-//               System.out.println(jp.getText());
-//               jp.nextToken();
-//           }
-            jp.getCurrentToken();
-        }
+        List<JsonEmployee> employee = objectMapper.readValue(file, new TypeReference<>() {});
+        assertThat(employee.get(0).getAge()).isEqualTo(33);
+        assertThat(employee.get(0).getFirstName()).isEqualTo("Marge");
+        assertThat(employee.get(0).getLastName()).isEqualTo("Simpson");
+        assertThat(employee.get(0).getComputer().get(0).getRam()).isEqualTo("DDR3");
 
 
 

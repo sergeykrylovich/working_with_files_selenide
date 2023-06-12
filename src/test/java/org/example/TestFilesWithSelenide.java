@@ -41,7 +41,7 @@ public class TestFilesWithSelenide {
                 System.out.println("File name - " + nameOfFile);
 
                 try (
-                    FileOutputStream fileOutputStream = new FileOutputStream("ext_" + nameOfFile);
+                    FileOutputStream fileOutputStream = new FileOutputStream("src/test/resources/unzipfiles/ext_" + nameOfFile);
                 ) {
                     for (int i = zipInputStream.read(); i != -1; i = zipInputStream.read()) {
                         fileOutputStream.write(i);
